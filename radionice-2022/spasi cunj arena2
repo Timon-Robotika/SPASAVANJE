@@ -5,13 +5,14 @@ void RobotLine::radionica() {
     armOpen();
   }
   static int broj = 0;
+  static int frontbroj = 0;
   char simbol[10 + sizeof(char)];
 
 
   if (lineAny()) {
     if (line(8) and line(0)) {
-      go(50, 50);
-      delayMs(250);
+      go(60, 60);
+      delayMs(300);
       broj = broj + 1;
 
     }
@@ -19,24 +20,51 @@ void RobotLine::radionica() {
       lineFollow();
   }
 
-
-
-  else {
-
-
-    if (front() > 50 and front() < 120) {
-      go(90, -90);
+  else if (broj == 1) {
+    if (front() < 120) {
+      go(-90, 90);
       delayMs(500);
     }
+    else if (rightFront() > 120 and leftFront() > 120) {
+      go(40, 40);
+    }
+    else if (rightFront() < 120) {
+      if (leftFront() < 120) {
+        go(20, 20);
+        delayMs(500);
+        armClose();
+        go(-90, 90);
+        delayMs(500);
+        armOpen();
+        go(20, 20);
+        delayMs(500);
+        go(-20, -20);
+        delayMs(500);
+
+
+
+
+      }
+
+      else if (rightFront() > 100)
+        go(80, 20);
+      else
+        go(20, 80);
+    }
+  }
+
+
+
+
+  else if (broj == 0) {
     // ZADATAK: Dodajte praćenje lijevog zida uz postojeće pračenje desnog zida.
     // HINT: Koristite grananje if uvjeta
-    else if (rightFront() < leftFront()) {
-      if (rightFront() < 120) {
-        if (rightFront() > 100)
-          go(80, 20);
-        else
-          go(20, 80);
-      }
+    if (rightFront() < 120) {
+      if (rightFront() > 100)
+        go(80, 20);
+      else
+        go(20, 80);
+
     }
     else if (leftFront() < 120) {
       if (leftFront() > 100)
