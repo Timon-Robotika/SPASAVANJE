@@ -1469,3 +1469,22 @@ void RobotLine::followWallAll() {
   display(simbol);
 
 }
+
+void RobotLine::linePreciseFollow() {
+  if (line(0)) {
+    go(40, 0);
+  }
+  else if (line(8)) {
+    go(0, 40);
+  }
+  
+  else if (line(1)) {
+    go(5, 35);
+  }
+  
+  else if (line(7)) {
+    go(35, 5);
+  }
+  
+
+}
