@@ -664,38 +664,38 @@ void RobotLine::display(char* text) {
 */
 void RobotLine::evacuationZone() {
   // if (setup()) {
-  // 	// Signal evacuation zone
-  // 	display(LED_EVACUATION_ZONE);
-  // 	stop();
-  // 	armClose();// armCatchReady();
-  // 	delayMs(300); // Wait for arm lowering.
-  // 	barrierBrightest = analogRead(35); // Calibrate barrier according to actual external illumination
+  //   // Signal evacuation zone
+  //  display(LED_EVACUATION_ZONE);
+  //  stop();
+  //  armClose();// armCatchReady();
+  //  delayMs(300); // Wait for arm lowering.
+  //  barrierBrightest = analogRead(35); // Calibrate barrier according to actual external illumination
   // }
 
   // wallFollow();
 
   // // Ball found
   // if (barrier()) {
-  // 	stop();
-  // 	armCatch();
-  // 	delayMs(1000);
-  // 	armUp();
-  // 	//go(50, 50);
-  // 	delayMs(1000);
-  // 	//stop();
-  // 	armDrop();
-  // 	delay(1000);
-  // 	armClose();
-  // 	end();
+  //  stop();
+  //  armCatch();
+  //  delayMs(1000);
+  //  armUp();
+  //  //go(50, 50);
+  //  delayMs(1000);
+  //  //stop();
+  //  armDrop();
+  //  delay(1000);
+  //  armClose();
+  //  end();
   // }
 }
 
 /** Front distance in mm. Warning - the function will take considerable amount of time to execute if sampleCount > 0!
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - distance in mm
 */
 uint16_t RobotLine::front(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -704,10 +704,10 @@ uint16_t RobotLine::front(uint8_t sampleCount, uint8_t sigmaCount) {
 
 /** Front side - left distance in mm. Warning - the function will take considerable amount of time to execute if sampleCount > 0!
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - distance in mm
 */
 uint16_t RobotLine::
@@ -717,10 +717,10 @@ frontLeft(uint8_t sampleCount, uint8_t sigmaCount) {
 
 /** Front side - right distance in mm. Warning - the function will take considerable amount of time to execute if sampleCount > 0!
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - distance in mm
 */
 uint16_t RobotLine::frontRight(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -769,10 +769,10 @@ void RobotLine::illumination(uint8_t current, uint8_t deviceNumber) {
 
 /** Left side - rear sensor distance.
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - in mm
 */
 uint16_t RobotLine::leftBack(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -781,10 +781,10 @@ uint16_t RobotLine::leftBack(uint8_t sampleCount, uint8_t sigmaCount) {
 
 /** Left side - front sensor distance.
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - in mm
 */
 uint16_t RobotLine::leftFront(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -855,52 +855,52 @@ void RobotLine::lineFollow() {
   // #define OBSTACLE 0
   // #if OBSTACLE
   // if (frontLeft() < 50 && frontLeft() != 0) { // Front sensor (1).
-  // 	//print("Obstacle: %i\n\r", frontLeft()); // For debugging.
-  // 	stop(); // Stop.
-  // 	delayMs(50); // Wait a little before another measurement to be sure that the lidar has enough time to send a fresh measurement.
-  // 	if (frontLeft() < 50) { // Check one more time. If detected again, this will be an obstacle.
-  // 		actionSet(actionObstacleAvoid); // Sets the new action.
-  // 		actionObstacleAvoid->leftOfObstacle = (leftFront() > leftFront()); // Decides if go left or right, depending on space available.
-  // 		return;
-  // 	}
+  //  //print("Obstacle: %i\n\r", frontLeft()); // For debugging.
+  //  stop(); // Stop.
+  //  delayMs(50); // Wait a little before another measurement to be sure that the lidar has enough time to send a fresh measurement.
+  //  if (frontLeft() < 50) { // Check one more time. If detected again, this will be an obstacle.
+  //    actionSet(actionObstacleAvoid); // Sets the new action.
+  //    actionObstacleAvoid->leftOfObstacle = (leftFront() > leftFront()); // Decides if go left or right, depending on space available.
+  //    return;
+  //  }
   // }
   // #endif
 
   // // Line found?
   // if (lineAny(true)) {
-  // 	#define CROSSINGS 0
-  // 	#if CROSSINGS
-  // 	// Both edge sensors and middle sensor? Crossing. Check markers.
-  // 	if (line(0) && line(LAST_TRANSISTOR / 2) && line(LAST_TRANSISTOR)) {
-  // 		// Green markers?
-  // 		if (!markers()) {// No mark detected. Go straight ahead.
-  // 			display(LED_FULL_CROSSING_NO_MARK); // Show sign.
-  // 			//delayMs(1000);
-  // 			go(TOP_SPEED, TOP_SPEED);
-  // 			delayMs(AHEAD_IN_CROSSING); // Make sure to cross the crossing.
-  // 		}
-  // 	}
-  // 	// Edge sensor? If so, sharp bend.
-  // 	else
-  // 	#endif
-  // 	if (line(0) || line(LAST_TRANSISTOR))
-  // 		curve();
-  // 	else {
-  // 		// Follow line
-  // 		float lineCenterNow = lineCenter(); // mrm-ref-can returns center of line, between -50 and 50 (mm).
-  // 		// Calculate slower motor's speed. The other one will run at top speed.
-  // 		go(lineCenterNow < 0 ? TOP_SPEED : TOP_SPEED - lineCenterNow * 8, lineCenterNow < 0 ? TOP_SPEED + lineCenterNow * 8 : TOP_SPEED);
-  // 		display(LED_LINE_FULL);
-  // 	}
-  // 	lastLineFoundMs = millis(); // Mark last time line detected.
+  //  #define CROSSINGS 0
+  //  #if CROSSINGS
+  //  // Both edge sensors and middle sensor? Crossing. Check markers.
+  //  if (line(0) && line(LAST_TRANSISTOR / 2) && line(LAST_TRANSISTOR)) {
+  //    // Green markers?
+  //    if (!markers()) {// No mark detected. Go straight ahead.
+  //      display(LED_FULL_CROSSING_NO_MARK); // Show sign.
+  //      //delayMs(1000);
+  //      go(TOP_SPEED, TOP_SPEED);
+  //      delayMs(AHEAD_IN_CROSSING); // Make sure to cross the crossing.
+  //    }
+  //  }
+  //  // Edge sensor? If so, sharp bend.
+  //  else
+  //  #endif
+  //  if (line(0) || line(LAST_TRANSISTOR))
+  //    curve();
+  //  else {
+  //    // Follow line
+  //    float lineCenterNow = lineCenter(); // mrm-ref-can returns center of line, between -50 and 50 (mm).
+  //    // Calculate slower motor's speed. The other one will run at top speed.
+  //    go(lineCenterNow < 0 ? TOP_SPEED : TOP_SPEED - lineCenterNow * 8, lineCenterNow < 0 ? TOP_SPEED + lineCenterNow * 8 : TOP_SPEED);
+  //    display(LED_LINE_FULL);
+  //  }
+  //  lastLineFoundMs = millis(); // Mark last time line detected.
   // }
   // // No line found for a long time -> evacuation area.
   // else if (millis() - lastLineFoundMs > BIGGEST_GAP_IN_LINE_MS)
-  // 	actionSet(actionEvacuationZone);
+  //  actionSet(actionEvacuationZone);
   // // No line found for s short time -> gap in line, continue straight ahead.
   // else {
-  // 	go(TOP_SPEED, TOP_SPEED);
-  // 	display(LED_LINE_INTERRUPTED);
+  //  go(TOP_SPEED, TOP_SPEED);
+  //  display(LED_LINE_INTERRUPTED);
   // }
 }
 
@@ -1052,50 +1052,50 @@ void RobotLine::obstacleAvoid() {
   // // This function will be executed many times during obstacle avoiding action, but only the first time the action (ActionObstacleAvoid) is executed will
   // // "setup()" be true, thus executing the next instruction (showing a sign).
   // if (setup())
-  // 	display(LED_OBSTACLE); // Show a sign.
+  //  display(LED_OBSTACLE); // Show a sign.
 
   // /* Obstacle evasive maneuver is an action big enough to justify its own ActionBase derived object, ActionObstacleAvoid, which is being executed right now.
-  // The maneuver itself consists of	different phases. Should all of them form ActionObstacleAvoid derived classes? Yes, that would be a good solution. However,
+  // The maneuver itself consists of  different phases. Should all of them form ActionObstacleAvoid derived classes? Yes, that would be a good solution. However,
   // here we will show a solution that is not object oriented: a "switch" statement. During many runs of this function, static variable "part" will be slowly
   // changing its value from 0 up, marking different phases. The logic follows.
   // */
   // switch (part) {
   // case 0: // Turn in place in front of obstacle.
-  // 	if (frontLeft() < 60 || lineAny()) // If obstacle is still in front or robot still on line - continue rotating.
-  // 		// Read the member variable of the current action (of class ActionObstacleAvoid) to determine direction of rotation.
-  // 		go(actionObstacleAvoid->leftOfObstacle ? -100 : 100, actionObstacleAvoid->leftOfObstacle ? 100 : -100);
-  // 	else { // No more obastacle or line.
-  // 		part = 1; // Advance to next phase.
-  // 		startMs = millis(); // Mark phase's beginning.
-  // 	}
-  // 	break;
+  //  if (frontLeft() < 60 || lineAny()) // If obstacle is still in front or robot still on line - continue rotating.
+  //    // Read the member variable of the current action (of class ActionObstacleAvoid) to determine direction of rotation.
+  //    go(actionObstacleAvoid->leftOfObstacle ? -100 : 100, actionObstacleAvoid->leftOfObstacle ? 100 : -100);
+  //  else { // No more obastacle or line.
+  //    part = 1; // Advance to next phase.
+  //    startMs = millis(); // Mark phase's beginning.
+  //  }
+  //  break;
   // case 1: // Continue turning even more.
-  // 	if (millis() - startMs > 50) { // A fixed number of milliseconds (50) is not the best solution, but it is here for demonstration purposes.
-  // 		part = 2; // Rotation over, advance to next phase.
-  // 		display(actionObstacleAvoid->leftOfObstacle ? LED_OBSTACLE_AROUND_LEFT : LED_OBSTACLE_AROUND_RIGHT); // Show sign.
-  // 	}
-  // 	break;
+  //  if (millis() - startMs > 50) { // A fixed number of milliseconds (50) is not the best solution, but it is here for demonstration purposes.
+  //    part = 2; // Rotation over, advance to next phase.
+  //    display(actionObstacleAvoid->leftOfObstacle ? LED_OBSTACLE_AROUND_LEFT : LED_OBSTACLE_AROUND_RIGHT); // Show sign.
+  //  }
+  //  break;
   // case 2: // Go around obstacle
-  // 	// One of 2 middle sensors found a line?
-  // 	if (line(4) || line(5)) { // Yes, the line found again.
-  // 		go(actionObstacleAvoid->leftOfObstacle ? -100 : 100, actionObstacleAvoid->leftOfObstacle ? 100 : -100); // Start aligning with the line.
-  // 		part = 3; // Advance to next phase.
-  // 	}
-  // 	// No line found, continue going around the obstacle.
-  // 	else
-  // 		// Here the fixed motors' speed are used - and that is not good. You should improve this action by feeding some sensors' output back into this motor-driving loop.
-  // 		go(actionObstacleAvoid->leftOfObstacle ? 95 : 30, actionObstacleAvoid->leftOfObstacle ? 30 : 95);
-  // 	break;
+  //  // One of 2 middle sensors found a line?
+  //  if (line(4) || line(5)) { // Yes, the line found again.
+  //    go(actionObstacleAvoid->leftOfObstacle ? -100 : 100, actionObstacleAvoid->leftOfObstacle ? 100 : -100); // Start aligning with the line.
+  //    part = 3; // Advance to next phase.
+  //  }
+  //  // No line found, continue going around the obstacle.
+  //  else
+  //    // Here the fixed motors' speed are used - and that is not good. You should improve this action by feeding some sensors' output back into this motor-driving loop.
+  //    go(actionObstacleAvoid->leftOfObstacle ? 95 : 30, actionObstacleAvoid->leftOfObstacle ? 30 : 95);
+  //  break;
   // case 3: // Align with the found line. To do that, continue rotating till an near-edge sensor finds the line.
-  // 	if (line(actionObstacleAvoid->leftOfObstacle ? 1 : 7))
-  // 		part = 4; // Advance to next phase.
-  // 	break;
+  //  if (line(actionObstacleAvoid->leftOfObstacle ? 1 : 7))
+  //    part = 4; // Advance to next phase.
+  //  break;
   // case 4: // Follow line again.
   // default:
-  // 	part = 0; // This is the last phase so reset "part" variable for the next obstacle.
-  // 	actionSet(actionLineFollow); // As the robot is now on line, set the current action to line following.
-  // 	actionPreprocessingEnd();
-  // 	break;
+  //  part = 0; // This is the last phase so reset "part" variable for the next obstacle.
+  //  actionSet(actionLineFollow); // As the robot is now on line, set the current action to line following.
+  //  actionPreprocessingEnd();
+  //  break;
   // }
 }
 
@@ -1132,10 +1132,10 @@ void RobotLine::rcjLine() {
 
 /** Front distance in mm. Warning - the function will take considerable amount of time to execute if sampleCount > 0!
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - distance in mm
 */
 uint16_t RobotLine::rightBack(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -1144,10 +1144,10 @@ uint16_t RobotLine::rightBack(uint8_t sampleCount, uint8_t sigmaCount) {
 
 /** Front distance in mm. Warning - the function will take considerable amount of time to execute if sampleCount > 0!
   @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
-				rest will be averaged. Keeps returning 0 till all the sample is read.
-				If sampleCount is 0, it will not wait but will just return the last value.
+        rest will be averaged. Keeps returning 0 till all the sample is read.
+        If sampleCount is 0, it will not wait but will just return the last value.
   @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
-				Therefore, lower sigma number will remove more errornous readings.
+        Therefore, lower sigma number will remove more errornous readings.
   @return - distance in mm
 */
 uint16_t RobotLine::rightFront(uint8_t sampleCount, uint8_t sigmaCount) {
@@ -1176,38 +1176,38 @@ void RobotLine::servo(uint16_t degrees, uint8_t servoNumber) {
   /*switch (servoNumber)
     {
     case 0:
-  	if (degrees <= 130){
-  		return mrm_servo->write(130, servoNumber);
-  	}
-  	else if (degrees >= 160){
-  		return mrm_servo->write(160, servoNumber);
-  	}
-  	else{
-  		return mrm_servo->write(degrees, servoNumber);
-  	}
-  	break;
+    if (degrees <= 130){
+      return mrm_servo->write(130, servoNumber);
+    }
+    else if (degrees >= 160){
+      return mrm_servo->write(160, servoNumber);
+    }
+    else{
+      return mrm_servo->write(degrees, servoNumber);
+    }
+    break;
     case 1:
-  	if (degrees <= 0){
-  		return mrm_servo->write(0, servoNumber);
-  	}
-  	else if (degrees >= 90){
-  		return mrm_servo->write(90, servoNumber);
-  	}
-  	else{
-  		return mrm_servo->write(degrees, servoNumber);
-  	}
-  	break;
+    if (degrees <= 0){
+      return mrm_servo->write(0, servoNumber);
+    }
+    else if (degrees >= 90){
+      return mrm_servo->write(90, servoNumber);
+    }
+    else{
+      return mrm_servo->write(degrees, servoNumber);
+    }
+    break;
     case 2:
-  	if (degrees <= 0){
-  		return mrm_servo->write(0, servoNumber);
-  	}
-  	else if (degrees >= 90){
-  		return mrm_servo->write(90, servoNumber);
-  	}
-  	else{
-  		return mrm_servo->write(degrees, servoNumber);
-  	}
-  	break;
+    if (degrees <= 0){
+      return mrm_servo->write(0, servoNumber);
+    }
+    else if (degrees >= 90){
+      return mrm_servo->write(90, servoNumber);
+    }
+    else{
+      return mrm_servo->write(degrees, servoNumber);
+    }
+    break;
 
     }*/
 }
@@ -1392,37 +1392,34 @@ bool RobotLine::wallRight() {
 
 void RobotLine::followWallRight() {
   if (frontRight() < 100) {
-    go(40, 60);
+    go(60, 80);
   }
   if (frontRight() > 100) {
-    go(60, 40);
+    go(80, 60);
   }
 }
 
 void RobotLine::followWallLeft() {
   if (frontLeft() > 100) {
-    go(60, 80);
+    go(85, 100);
   }
   if (frontLeft() < 100) {
-    go(80, 60);
+    go(100, 85);
   }
 }
 
 
 
 
-int RobotLine::followWallAll() {
+void RobotLine::followWallAll() {
+
   static int zid = 0;
+  char simbol[10 + sizeof(char)];
+
   bool desno = false;
   bool lijevo = false;
-  bool nista = false;
 
-  if (line(0) and line(3) and line(6) and line(8)) {
-    return 1;
-  }
-
-
-
+ 
   if (frontRight() > 150 and frontLeft() > 150) {
     go(60, 60);
     bool desno = false;
@@ -1446,14 +1443,16 @@ int RobotLine::followWallAll() {
   }
 
 
-  if (front() < 140) {
+  if (front() < 140 and front() > 80) {
     zid++;
-    if (nista and zid < 3) {
-      return 2;
+    if (frontRight() > 150 and frontLeft() > 150 and zid < 3) {
+      go(90, -90);
+      delayMs(500);
     }
 
-    else if (nista and zid > 3) {
-      return 3;
+    else if (frontRight() > 150 and frontLeft() > 150 and zid >= 3) {
+      go(-90, 90);
+      delayMs(500);
     }
     else if (desno) {
       go(-90, 90);
@@ -1466,6 +1465,7 @@ int RobotLine::followWallAll() {
     }
   }
 
-
+  sprintf(simbol, "%d", zid);
+  display(simbol);
 
 }
