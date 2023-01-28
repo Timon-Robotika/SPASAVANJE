@@ -7,22 +7,17 @@ void RobotLine::radionica() {
     armOpen();
   }
 
-
-  followWallAll();
-
-  if (followWallAll() == 1) {
+if (lineAny()) {
     go(60, 60);
     delayMs(500);
     stop();
+    delayMs(1000);
     end();
+    delayMs(1000);
   }
-if (followWallAll() == 2) {
-  go(-90, 90);
-  delayMs(500);
-}
-if (followWallAll() == 3) {
-  go(90, -90);
-  delayMs(500);
-}
   
+  followWallAll();
+  
+ 
+
 }
