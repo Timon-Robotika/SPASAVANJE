@@ -1421,7 +1421,7 @@ void RobotLine::followWallAll() {
 
  
   if (frontRight() > 150 and frontLeft() > 150) {
-    go(60, 60);
+    go(90, 90);
     bool desno = false;
     bool lijevo = false;
     bool nista = true;
