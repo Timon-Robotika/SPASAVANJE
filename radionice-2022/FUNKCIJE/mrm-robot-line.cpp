@@ -1419,7 +1419,7 @@ void RobotLine::followWallAll() {
   bool desno = false;
   bool lijevo = false;
 
- 
+
   if (frontRight() > 150 and frontLeft() > 150) {
     go(90, 90);
     bool desno = false;
@@ -1471,20 +1471,74 @@ void RobotLine::followWallAll() {
 }
 
 void RobotLine::linePreciseFollow() {
-  if (line(0)) {
-    go(40, 0);
+  if (line(0) and line(8) or line(1) and line(7)) {
+    go(100, 100);
   }
-  else if (line(8)) {
-    go(0, 40);
+
+  if (pitch() < -10) {
+    if (line(8))
+      go(0, 90);
+    else if (line(0))
+      go(90, 0);
+    else if (line(7))
+      go(15, 80);
+    else if (line(1))
+      go(80, 15);
+    else if (line(6))
+      go(50, 100);
+    else if (line(2))
+      go(100, 50);
+    else if (line(5))
+      go(70, 100);
+    else if (line(3))
+      go(100, 70);
+    else if (line(4))
+      go(100, 100);
+    else
+      go(100, 100);
   }
-  
-  else if (line(1)) {
-    go(5, 35);
+  //aaaaaaaaaaaaaaaaaaa
+  else {
+    if (line(8))
+      go(-80, 80);
+    else if (line(0))
+      go(80, -80);
+    else if (line(7))
+      go(-20, 90);
+    else if (line(1))
+      go(90, -20);
+    else if (line(6))
+      go(20, 70);
+    else if (line(2))
+      go(70, 20);
+    else if (line(5))
+      go(50, 70);
+    else if (line(3))
+      go(70, 50);
+    else if (line(4))
+      go(90, 90);
+    else
+      go(70, 70);
   }
-  
-  else if (line(7)) {
-    go(35, 5);
+}
+
+
+
+void RobotLine::objectOnLine() {
+  linePreciseFollow();
+  if(front() < 150){
+    delay(50);
   }
-  
+  if(front() < 140){
+    
+
+
+   
+  }
+
+
+
+
+
 
 }
