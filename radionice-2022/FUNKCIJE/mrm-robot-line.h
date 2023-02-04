@@ -144,6 +144,7 @@ class RobotLine : public Robot {
     void followWallAll();
   
     void linePreciseFollow();
+    void objectOnLine();
 
 
     /** Color sensor's blue
