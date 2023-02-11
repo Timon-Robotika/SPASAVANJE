@@ -138,13 +138,17 @@ class RobotLine : public Robot {
     */
     void bitmapsSet();
 
+
+    // moje funkcije
     void followWallRight();
     void followWallLeft();
 
     void followWallAll();
-  
+
     void linePreciseFollow();
     void objectOnLine();
+    void ballCatch();
+
 
 
     /** Color sensor's blue
