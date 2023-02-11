@@ -3,6 +3,8 @@
 
 
 void RobotLine::radionica() {
-
-  void objectOnLine();
+if (setup()) {
+  armOpen();
+}
+   ballCatch();
 }
