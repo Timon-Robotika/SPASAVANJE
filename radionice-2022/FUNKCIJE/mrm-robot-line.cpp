@@ -114,7 +114,7 @@ void RobotLine::armCarry() {
 }
 
 void RobotLine::armOpen() {
-  servo(140, 0);      // Range from 130 - 160
+  servo(150, 0);      // Range from 130 - 160
   servo(80, 1);       // Range from 0 - 90
   servo(10, 2);       // Range from 90 - 0}
 }
@@ -132,7 +132,7 @@ void RobotLine::armCatchReady() {
 /**
 */
 void RobotLine::armClose() {
-  servo(130, 0);
+  servo(150, 0);
   servo(10, 1);
   servo(80, 2);
 }
@@ -1392,19 +1392,19 @@ bool RobotLine::wallRight() {
 
 void RobotLine::followWallRight() {
   if (frontRight() < 100) {
-    go(60, 80);
+    go(40, 60);
   }
-  if (frontRight() > 100) {
-    go(80, 60);
+  if (frontRight() > 100 and frontRight() < 20) {
+    go(60, 40);
   }
 }
 
 void RobotLine::followWallLeft() {
-  if (frontLeft() > 100) {
-    go(85, 100);
+  if (frontLeft() > 100 and frontLeft() < 20) {
+    go(40, 60);
   }
   if (frontLeft() < 100) {
-    go(100, 85);
+    go(40, 60);
   }
 }
 
@@ -1497,7 +1497,7 @@ void RobotLine::linePreciseFollow() {
     else
       go(100, 100);
   }
-  //aaaaaaaaaaaaaaaaaaa
+ 
   else {
     if (line(8))
       go(-80, 80);
@@ -1526,19 +1526,36 @@ void RobotLine::linePreciseFollow() {
 
 void RobotLine::objectOnLine() {
   linePreciseFollow();
-  if(front() < 150){
-    delay(50);
+  if (front() < 150) {
+    stop();
+    delayMs(50);
+
+    if (front() < 140) {
+      go(-70, 70);
+      delayMs(500);
+      while (!lineAny()) {
+        go(70, 30);
+        noLoopWithoutThis();
+      }
+      go(30, 70);
+      delayMs(1000);
+
+    }
   }
-  if(front() < 140){
-    
+}
 
 
-   
-  }
-
-
-
-
+void RobotLine::ballCatch() {
+followWallLeft();
+if (frontRight() < 200 and frontRight() > 60){
+   go(60, 60);
+  delayMs(500);
+  go(90, -90);
+  delayMs(500);
+  go(20, 20);
+  delayMs(5000);
+  armCatch();
+}
 
 
 }
