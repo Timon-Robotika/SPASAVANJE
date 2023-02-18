@@ -8,3 +8,4 @@ if (setup()) {
 }
    ballCatch();
 }
+raskrzje()
