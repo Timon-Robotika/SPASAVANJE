@@ -148,6 +148,7 @@ class RobotLine : public Robot {
     void linePreciseFollow();
     void objectOnLine();
     void ballCatch();
+    void raskrzje(int a);
 
 
 
