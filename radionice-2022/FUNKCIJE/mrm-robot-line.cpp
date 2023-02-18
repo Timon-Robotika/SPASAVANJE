@@ -1400,11 +1400,11 @@ void RobotLine::followWallRight() {
 }
 
 void RobotLine::followWallLeft() {
-  if (frontLeft() > 100 and frontLeft() < 20) {
+  if (frontLeft() > 100) {
     go(40, 60);
   }
   if (frontLeft() < 100) {
-    go(40, 60);
+    go(60, 40);
   }
 }
 
@@ -1497,7 +1497,7 @@ void RobotLine::linePreciseFollow() {
     else
       go(100, 100);
   }
- 
+
   else {
     if (line(8))
       go(-80, 80);
@@ -1546,16 +1546,54 @@ void RobotLine::objectOnLine() {
 
 
 void RobotLine::ballCatch() {
-followWallLeft();
-if (frontRight() < 200 and frontRight() > 60){
-   go(60, 60);
-  delayMs(500);
-  go(90, -90);
-  delayMs(500);
-  go(20, 20);
-  delayMs(5000);
-  armCatch();
-}
+  followWallLeft();
+  if (frontRight() < 250 and frontRight() > 40) {
+    go(60, 60);
+    delayMs(800);
+    go(90, -90);
+    delayMs(500);
+    go(20, 20);
+    delayMs(3500);
+    armCatch();
+    stop();
+    delayMs(200);
+    go(-20, -20);
+    delayMs(3500);
+    go(-90, 90);
+    delayMs(500);
+    stop();
+    end();
+  }
 
 
 }
+
+
+
+void RobotLine::raskrzje(int a) {
+  //  0  znaci da je ras  T  i da ide  180  stupnjeva
+  if (a == 0) {
+    if (line(0) and line(8)) {
+      stop();
+      delayMs(20);
+      if (line(0) and line(8)) {
+        go(180);
+      }
+    }
+
+  }
+  //  1  znaci da je ras  L (gore desno)  i da ide  90  desno
+  if (a == 1){
+    if (
+  }
+
+
+
+
+
+
+
+
+}
+
+
