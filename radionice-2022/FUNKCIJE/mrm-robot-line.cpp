@@ -114,7 +114,7 @@ void RobotLine::armCarry() {
 }
 
 void RobotLine::armOpen() {
-  servo(150, 0);      // Range from 130 - 160
+  servo(40, 0);      // Range from 130 - 160
   servo(80, 1);       // Range from 0 - 90
   servo(10, 2);       // Range from 90 - 0}
 }
@@ -132,7 +132,7 @@ void RobotLine::armCatchReady() {
 /**
 */
 void RobotLine::armClose() {
-  servo(150, 0);
+  servo(40, 0);
   servo(10, 1);
   servo(80, 2);
 }
@@ -1526,20 +1526,29 @@ void RobotLine::linePreciseFollow() {
 
 void RobotLine::objectOnLine() {
   linePreciseFollow();
-  if (front() < 150) {
+  if (front() < 150 and front() > 90) {
     stop();
-    delayMs(50);
+    delayMs(30);
+    if (front() < 150 and front() > 90) {
+      stop();
+      delayMs(30);
+      if (front() < 150 and front() > 90) {
+        stop();
+        delayMs(30);
 
-    if (front() < 140) {
-      go(-70, 70);
-      delayMs(500);
-      while (!lineAny()) {
-        go(70, 30);
-        noLoopWithoutThis();
+        if (front() < 140 and front() > 90) {
+          go(70, -70);
+          delayMs(500);
+          // line 7 i 8 promijeni ako ides u drugu stranu
+          while (!line(7) and !line(8)) {
+            go(20, 70);
+            noLoopWithoutThis();
+          }
+          go(70, 20);
+          delayMs(500);
+
+        }
       }
-      go(30, 70);
-      delayMs(1000);
-
     }
   }
 }
@@ -1567,33 +1576,3 @@ void RobotLine::ballCatch() {
 
 
 }
-
-
-
-void RobotLine::raskrzje(int a) {
-  //  0  znaci da je ras  T  i da ide  180  stupnjeva
-  if (a == 0) {
-    if (line(0) and line(8)) {
-      stop();
-      delayMs(20);
-      if (line(0) and line(8)) {
-        go(180);
-      }
-    }
-
-  }
-  //  1  znaci da je ras  L (gore desno)  i da ide  90  desno
-  if (a == 1){
-    if (
-  }
-
-
-
-
-
-
-
-
-}
-
-
