@@ -1471,9 +1471,7 @@ void RobotLine::followWallAll() {
 }
 
 void RobotLine::linePreciseFollow() {
-  if (line(0) and line(8) or line(1) and line(7)) {
-    go(100, 100);
-  }
+
 
   if (pitch() < -10) {
     if (line(8))
@@ -1500,25 +1498,25 @@ void RobotLine::linePreciseFollow() {
 
   else {
     if (line(8))
-      go(-80, 80);
+      go(-60, 80);
     else if (line(0))
-      go(80, -80);
+      go(80, -60);
     else if (line(7))
-      go(-20, 90);
+      go(-5, 60);
     else if (line(1))
-      go(90, -20);
+      go(60, -5);
     else if (line(6))
-      go(20, 70);
+      go(5, 70);
     else if (line(2))
-      go(70, 20);
+      go(70, 5);
     else if (line(5))
-      go(50, 70);
+      go(25, 60);
     else if (line(3))
-      go(70, 50);
+      go(60, 25);
     else if (line(4))
-      go(90, 90);
+      go(50, 50);
     else
-      go(70, 70);
+      go(50, 50);
   }
 }
 
@@ -1576,3 +1574,4 @@ void RobotLine::ballCatch() {
 
 
 }
+
