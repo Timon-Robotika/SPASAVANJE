@@ -1471,30 +1471,33 @@ void RobotLine::followWallAll() {
 }
 
 void RobotLine::linePreciseFollow() {
-
-
   if (pitch() < -10) {
-    if (line(8))
-      go(0, 90);
+    if (line(0) and line(8) or line(1) and line(7)) {
+      go(100, 100);
+      delayMs(250);
+    }
+    else if (line(8))
+      go(10, 100);
     else if (line(0))
-      go(90, 0);
+      go(100, 10);
     else if (line(7))
-      go(15, 80);
+      go(20, 90);
     else if (line(1))
-      go(80, 15);
+      go(90, 20);
     else if (line(6))
-      go(50, 100);
+      go(60, 100);
     else if (line(2))
-      go(100, 50);
+      go(100, 60);
     else if (line(5))
-      go(70, 100);
+      go(80, 100);
     else if (line(3))
-      go(100, 70);
+      go(100, 80);
     else if (line(4))
       go(100, 100);
     else
       go(100, 100);
   }
+
 
   else {
     if (line(8))
@@ -1502,44 +1505,44 @@ void RobotLine::linePreciseFollow() {
     else if (line(0))
       go(80, -60);
     else if (line(7))
-      go(-5, 60);
+      go(20, 80);
     else if (line(1))
-      go(60, -5);
+      go(80, 20);
     else if (line(6))
-      go(5, 70);
+      go(35, 90);
     else if (line(2))
-      go(70, 5);
+      go(90, 35);
     else if (line(5))
-      go(25, 60);
+      go(45, 100);
     else if (line(3))
-      go(60, 25);
+      go(100, 45);
     else if (line(4))
-      go(50, 50);
-    else
-      go(50, 50);
+      go(90, 90);
+
   }
+
 }
 
 
 
 void RobotLine::objectOnLine() {
   linePreciseFollow();
-  if (front() < 150 and front() > 90) {
+  if (front() < 140 and front() > 110) {
     stop();
-    delayMs(30);
-    if (front() < 150 and front() > 90) {
+    delayMs(20);
+    if (front() < 140 and front() > 110) {
       stop();
-      delayMs(30);
-      if (front() < 150 and front() > 90) {
+      delayMs(20);
+      if (front() < 140 and front() > 110) {
         stop();
-        delayMs(30);
+        delayMs(20);
 
-        if (front() < 140 and front() > 90) {
+        if (front() < 140 and front() > 100) {
           go(70, -70);
           delayMs(500);
           // line 7 i 8 promijeni ako ides u drugu stranu
           while (!line(7) and !line(8)) {
-            go(20, 70);
+            go(15, 70);
             noLoopWithoutThis();
           }
           go(70, 20);
@@ -1574,4 +1577,3 @@ void RobotLine::ballCatch() {
 
 
 }
-
