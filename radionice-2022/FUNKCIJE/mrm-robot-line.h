@@ -142,11 +142,13 @@ class RobotLine : public Robot {
     // moje funkcije
     void followWallRight();
     void followWallLeft();
-
     void followWallAll();
 
-    void linePreciseFollow();
-    void objectOnLine();
+    void lineFast();
+    void lineSlow();
+    void linePitch();
+    
+    void objectOnLine(int a);
     void ballCatch();
 
 
