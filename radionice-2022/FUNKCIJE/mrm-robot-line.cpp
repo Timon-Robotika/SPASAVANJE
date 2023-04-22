@@ -1504,21 +1504,21 @@ void RobotLine::linePitch() {
 
 void RobotLine::lineFast() {
     if (line(8))
-      go(-40, 100);
+      go(-60, 80);
     else if (line(0))
-      go(100, -40);
+      go(80, -60);
     else if (line(7))
-      go(0, 60);
+      go(-15, 80);
     else if (line(1))
-      go(60, 0);
+      go(80, -15);
     else if (line(6))
-      go(40, 80);
+      go(45, 85);
     else if (line(2))
-      go(80, 40);
+      go(85, 45);
     else if (line(5))
-      go(80, 100);
+      go(70, 100);
     else if (line(3))
-      go(100, 80);
+      go(100, 70);
     else if (line(4))
       go(100, 100);
 }
@@ -1537,9 +1537,9 @@ void RobotLine::lineSlow() {
     else if (line(2))
       go(60, 5);
     else if (line(5))
-      go(35, 60);
+      go(30, 60);
     else if (line(3))
-      go(60, 35);
+      go(60, 30);
     else if (line(4))
       go(60, 60);
 }
@@ -1567,11 +1567,11 @@ void RobotLine::objectOnLine(int a) {
           delayMs(500);
           // line 7 i 8 promijeni ako ides u drugu stranu
           while (!line(7) and !line(8)) {
-            go(30, 70);
+            go(20, 70);
             noLoopWithoutThis();
           }
-          go(70, 20);
-          delayMs(500);
+          go(70, 10);
+          delayMs(400);
 
         }
       }
