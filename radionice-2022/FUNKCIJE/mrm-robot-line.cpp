@@ -1472,76 +1472,71 @@ void RobotLine::followWallAll() {
 
 void RobotLine::linePitch() {
 
-  if (pitch() < -10) {
-    if (line(0) and line(8) or line(1) and line(7)) {
-      go(100, 100);
-      delayMs(250);
-    }
-    else if (line(8))
-      go(10, 100);
-    else if (line(0))
-      go(100, 10);
-    else if (line(7))
-      go(20, 90);
-    else if (line(1))
-      go(90, 20);
-    else if (line(6))
-      go(60, 100);
-    else if (line(2))
-      go(100, 60);
-    else if (line(5))
-      go(80, 100);
-    else if (line(3))
-      go(100, 80);
-    else if (line(4))
-      go(100, 100);
-    else
-      go(100, 100);
-  }
+  if (line(8))
+    go(0, 100);
+  else if (line(0))
+    go(100, 0);
+  else if (line(7))
+    go(20, 100);
+  else if (line(1))
+    go(100, 20);
+  else if (line(6))
+    go(60, 100);
+  else if (line(2))
+    go(100, 60);
+  else if (line(5))
+    go(80, 100);
+  else if (line(3))
+    go(100, 80);
+  else if (line(4))
+    go(100, 100);
+  else
+    go(100, 100);
 }
+
 
 
 
 void RobotLine::lineFast() {
-    if (line(8))
-      go(-60, 80);
-    else if (line(0))
-      go(80, -60);
-    else if (line(7))
-      go(-15, 80);
-    else if (line(1))
-      go(80, -15);
-    else if (line(6))
-      go(45, 85);
-    else if (line(2))
-      go(85, 45);
-    else if (line(5))
-      go(70, 100);
-    else if (line(3))
-      go(100, 70);
-    else if (line(4))
-      go(100, 100);
+  if (line(8))
+    go(-60, 80);
+  else if (line(0))
+    go(80, -60);
+  else if (line(7))
+    go(-5, 80);
+  else if (line(1))
+    go(80, -5);
+  else if (line(6))
+    go(60, 90);
+  else if (line(2))
+    go(90, 60);
+  else if (line(5))
+    go(80, 100);
+  else if (line(3))
+    go(100, 80);
+  else if (line(4))
+    go(100, 100);
 }
 
 void RobotLine::lineSlow() {
-    if (line(8))
-      go(-60, 100);
-    else if (line(0))
-      go(100, -60);
-    else if (line(7))
-      go(-20, 80);
-    else if (line(1))
-      go(80, -20);
-    else if (line(6))
-      go(5, 60);
-    else if (line(2))
-      go(60, 5);
-    else if (line(5))
-      go(30, 60);
-    else if (line(3))
-      go(60, 30);
-    else if (line(4))
-      go(60, 60);
+  if (line(8))
+    go(-80, 100);
+  else if (line(0))
+    go(100, -80);
+  else if (line(7))
+    go(-20, 80);
+  else if (line(1))
+    go(80, -20);
+  else if (line(6))
+    go(0, 60);
+  else if (line(2))
+    go(60, 0);
+  else if (line(5))
+    go(40, 70);
+  else if (line(3))
+    go(70, 40);
+  else if (line(4))
+    go(70, 70);
 }
 
 
