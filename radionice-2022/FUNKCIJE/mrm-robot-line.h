@@ -143,6 +143,7 @@ class RobotLine : public Robot {
     void followWallRight();
     void followWallLeft();
     void followWallAll();
+    void wall(int a);
 
     void lineFast();
     void lineSlow();
