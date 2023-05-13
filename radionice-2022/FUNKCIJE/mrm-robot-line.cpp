@@ -114,7 +114,7 @@ void RobotLine::armCarry() {
 }
 
 void RobotLine::armOpen() {
-  servo(40, 0);      // Range from 130 - 160
+  servo(140, 0);      // Range from 130 - 160
   servo(80, 1);       // Range from 0 - 90
   servo(10, 2);       // Range from 90 - 0}
 }
@@ -132,7 +132,7 @@ void RobotLine::armCatchReady() {
 /**
 */
 void RobotLine::armClose() {
-  servo(40, 0);
+  servo(140, 0);
   servo(10, 1);
   servo(80, 2);
 }
@@ -1354,7 +1354,7 @@ void RobotLine::wallFollow() {
       error = -error;
     // Drive one side at top speed.
     go(error < 0 ? TOP_SPEED : TOP_SPEED - error, error < 0 ? TOP_SPEED + error : TOP_SPEED);
-  }
+  } followWallRight
 
   // Wall ahead
   if (frontLeft() < WALL_AHEAD_MM) {
@@ -1499,21 +1499,21 @@ void RobotLine::linePitch() {
 
 void RobotLine::lineFast() {
   if (line(8))
-    go(-60, 80);
+    go(-50, 100);
   else if (line(0))
-    go(80, -60);
+    go(100, -50);
   else if (line(7))
-    go(-5, 80);
+    go(0, 100);
   else if (line(1))
-    go(80, -5);
+    go(100, 0);
   else if (line(6))
-    go(60, 90);
+    go(50, 100);
   else if (line(2))
-    go(90, 60);
+    go(100, 50);
   else if (line(5))
-    go(80, 100);
+    go(75, 100);
   else if (line(3))
-    go(100, 80);
+    go(100, 75);
   else if (line(4))
     go(100, 100);
 }
@@ -1558,11 +1558,11 @@ void RobotLine::objectOnLine(int a) {
         delayMs(20);
 
         if (front() < 140 and front() > 100) {
-          go(70, -70);
+          go(80, -80);
           delayMs(500);
           // line 7 i 8 promijeni ako ides u drugu stranu
           while (!line(7) and !line(8)) {
-            go(20, 70);
+            go(25, 70);
             noLoopWithoutThis();
           }
           go(70, 10);
@@ -1597,3 +1597,13 @@ void RobotLine::ballCatch() {
 
 
 }
+
+void RobotLine::wall(int a) {
+  if (frontRight() < a)
+    go(55, 70);
+  if (frontRight() > a)
+    go(70, 55);
+}
+
+
+
