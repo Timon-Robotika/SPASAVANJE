@@ -1520,23 +1520,23 @@ void RobotLine::lineFast() {
 
 void RobotLine::lineSlow() {
   if (line(8))
-    go(-80, 100);
+    go(-40, 40);
   else if (line(0))
-    go(100, -80);
+    go(40, -40);
   else if (line(7))
-    go(-20, 80);
+    go(-10, 30);
   else if (line(1))
-    go(80, -20);
+    go(30, -10);
   else if (line(6))
-    go(0, 60);
+    go(0, 35);
   else if (line(2))
-    go(60, 0);
+    go(35, 0);
   else if (line(5))
-    go(40, 70);
+    go(25, 40);
   else if (line(3))
-    go(70, 40);
+    go(40, 25);
   else if (line(4))
-    go(70, 70);
+    go(40, 40);
 }
 
 
