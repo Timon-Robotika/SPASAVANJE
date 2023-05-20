@@ -75,7 +75,7 @@ void RobotLine::radionica() {
     go(40, 40);
     delayMs(600);
     a++;
-
+//------------------------------- kad je a 4 on nece primjetit jer  je to sve u glavnom if statementu
   }
 
 }
