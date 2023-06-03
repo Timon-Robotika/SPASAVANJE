@@ -1606,4 +1606,3 @@ void RobotLine::wall(int a) {
 }
 
 
-
