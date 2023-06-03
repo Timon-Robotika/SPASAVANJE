@@ -14,7 +14,7 @@ void RobotLine::radionica() {
 
 
   // ako vidi raskrzje
-  if ((line(8) and line(0) and (a<3)) or (line(1) and line(7)) and (a<3)) {
+  if ((line(8) and line(0) and (a<3)) or (line(1) and line(7) and (a<3))) {
     //skreni 90 stupnjeva i idi naprijed
     go(-50, 100);
     delayMs(650);
