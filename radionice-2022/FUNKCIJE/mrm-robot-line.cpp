@@ -1524,19 +1524,19 @@ void RobotLine::lineSlow() {
   else if (line(0))
     go(40, -40);
   else if (line(7))
-    go(-10, 30);
+    go(-10, 50);
   else if (line(1))
-    go(30, -10);
+    go(50, -10);
   else if (line(6))
-    go(0, 35);
+    go(10, 60);
   else if (line(2))
-    go(35, 0);
+    go(60, 10);
   else if (line(5))
-    go(25, 40);
+    go(40, 60);
   else if (line(3))
-    go(40, 25);
+    go(60, 40);
   else if (line(4))
-    go(40, 40);
+    go(60, 60);
 }
 
 
@@ -1604,5 +1604,4 @@ void RobotLine::wall(int a) {
   if (frontRight() > a)
     go(70, 55);
 }
-
 
