@@ -14,7 +14,7 @@ void RobotLine::radionica() {
 
 
   // ako vidi raskrzje
-  if ((line(8) and line(0) and (a<3)) or (line(1) and line(7) and (a<3))) {
+  if ((line(8) and line(0) and (a < 3)) or (line(1) and line(7) and (a < 3))) {
     //skreni 90 stupnjeva i idi naprijed
     go(-50, 100);
     delayMs(650);
@@ -65,14 +65,65 @@ void RobotLine::radionica() {
     delayMs(600);
 
     a++;
-    sprintf(simbol, "%d", a);
-    display(simbol);
+
   }
 
-else{
-   // idi naprijed dok nisi na raskrzju
-  lineSlow();
-}
+  else if ((a == 3) and (line(8) and line(0)) or (a == 3) and (line(1) and line(7))) {
+    go(-50, 100);
+    delayMs(650);
+    ms = millis();
+    while (millis() - ms < 2000) {
+      lineSlow();
+      noLoopWithoutThis();
+    }
+    go(100, -100);
+    delayMs(900);
+    if (varijabla[0] == 1)
+      display("L");
+    else if (varijabla[1] == 1)
+      display("N");
+    else if (varijabla[2] == 1)
+      display("D");
+    else
+      display("?");
+    a++;
+  }
+  else if ((line(8) and line(0)) or (line(1) and line(7))) {
+    if (varijabla[0] == 1) {
+      go(-50, 100);
+      delayMs(650);
+      go(100, 100);
+      delayMs(1500);
+      stop();
+      delayMs(100000);
+    }
+    else if (varijabla[1] == 1) {
+      go(100, 100);
+      delayMs(1500);
+      stop();
+      delayMs(100000);
+    }
+    else if (varijabla[2] == 1) {
+      go(100, -50);
+      delayMs(650);
+      go(100, 100);
+      delayMs(1500);
+      stop();
+      delayMs(100000);
+    }
+    else {
+      display("?");
+      stop();
+      delayMs(100000);
+    }
+
+  }
+
+
+  else {
+    // idi naprijed dok nisi na raskrzju
+    lineSlow();
+  }
 
 
 
